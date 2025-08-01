@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MAT WORDS</title>
   </head>
+
   <body>
+    <!-- On lie le fichier html au Javascript-->
+
     <h1>🎲 Ton jeu de devinette sur le JJB 🎲</h1>
 
     <div id="mot-a-deviner">_ _ _ _ _ _ _ _</div>
@@ -18,14 +21,21 @@
       placeholder="Lettre"
       autofocus
     />
-    <!-- Ici c'est la zone où l'on vas taper une lettre à la fois avec une limite de 1 caractère -->
+    <!--Ici c'est la zone où l'on vas taper une lettre à la fois avec une limite de 1 caractère-->
     <!-- Autofocus indique au navigateur de faire clignotter le curseur de suite, l'utilisateur 
-    pourra commencer à taper sans cliquer sur la case, c'est plus agréable!-->
+     pourra commencer à taper sans cliquer sur la case, c'est plus agréable -->
 
     <button id="valider">Valider</button>
     <!-- C'est le bouton pour valider la lettre -->
 
     <p>Essais restants : <span id="essais">8</span></p>
     <!-- il s'agit d'un compteur d'essais que l'on modifiera plus tard-->
+    <p id="message"></p>
+
+    <script src="script.js"></script>
+    <!-- Cette balise <p> sert à afficher des messages dynamiques au joueur pendant le jeu.
+     L'attribut id="message" permet au JavaScript de la repérer facilement pour y
+     écrire du texte comme "Lettre déjà proposée", "Bravo, tu as gagné !", ou "Erreur". 
+     Au départ, elle est vide (pas de texte entre <p> et </p>). -->
   </body>
 </html>
