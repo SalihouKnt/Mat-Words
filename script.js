@@ -12,11 +12,21 @@ const inputLettre = document.getElementById("lettre");
 // la fonction demandée sera exécutée
 btnValider.addEventListener("click", function () {
   // Ici, on change le contenu texte de l’élément "message" pour afficher un texte fixe
-  const lettre = inputLettre.ariaValueMax.toLowerCase();
+  const lettre = inputLettre.value.toLowerCase();
   // Ici, on récupère la lettre tapée par l’utilisateur dans le champ inputLettre.
   // .value donne le contenu texte écrit dans l’input.
   // .toLowerCase() transforme cette lettre en minuscule pour éviter les différences entre majuscules et minuscules
   // (par exemple « A » et « a » seront identiques pour comparer).
 
-  if (!lettre.match)
+  if (!lettre.match(/^[a-zà-ÿ-]$/)) {
+    // Si la lettre n’est pas correcte, on affiche ce message d’erreur au joueur, dans la zone prévue.
+    message.textContent = "Merci de sasisir une lettre valide";
+  } else {
+    // Sinon (ie. la lettre est correcte), on affiche un message de confirmation avec la lettre prise en compte.
+    message.textContent = `Lettre prise en compte : "${lettre}"`;
+  }
+  inputLettre.value = ""; // On vide le champ texte (inputLettre) pour que l’utilisateur puisse saisir directement une nouvelle lettre.
+  inputLettre.focus(); // On remet le focus dans le champ texte, c’est-à-dire que le curseur clignotant
+  // revient automatiquement dans la case de saisie, prêt à recevoir une nouvelle lettre.
+  // C’est plus confortable pour jouer rapidement.
 });
