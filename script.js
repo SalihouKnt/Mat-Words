@@ -1,3 +1,23 @@
+let lettresProposees = [];
+const motADeviner = "kimura";
+
+function afficherMot() {
+  let motAAfficher = "";
+
+  for (let lettreCourrante of motADeviner) {
+    // si la lettre a été proposé, on l'affiche
+    if (lettresProposees.includes(lettreCourrante)) {
+      motAAfficher += lettreCourante + " "; // On ajoute la lettre + un espace
+    } else {
+      motAAfficher += "_ "; // sinon on ajoute un underscore + un espace
+    }
+  }
+  // On enlèce l'espace en trop et on met à jour la div qui affiche le mot
+  motAffiche.textContent = motAAfficher.trim();
+}
+
+const motAffiche = document.getElementById("mot-a-deviner");
+
 // On repère le bouton avec l’id "valider" dans la page HTML, pour pouvoir lui associer une action plus tard
 const btnValider = document.getElementById("valider");
 
